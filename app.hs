@@ -33,7 +33,7 @@ last'    (x:[]) =  x
 last'    (x:xs) =  last' xs
 
 halfAdder :: Int -> Int -> (Int, Int)
-halfAdder x y
+halfAdder x y = ( xors x y , ands x y )
 
 fullAdder :: Int -> Int -> Int -> (Int, Int)
 fullAdder x y c = ( xors (xors x y) c , ors (ands c (xors x y)) (ands x y) )
