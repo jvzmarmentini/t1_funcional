@@ -10,6 +10,34 @@ odd' :: Int -> Bool
 odd' 0 = False
 odd' n = even' (n - 1)
 
+-- logic
+
+nots :: Int -> Int
+nots 1 = 0
+nots 0 = 1
+
+xors :: Int -> Int -> Int
+xors 1 a = nots a
+xors 0 a = a
+
+ors :: Int -> Int -> Int
+ors 0 0 = 0
+ors _ _ = 1
+
+ands :: Int -> Int -> Int
+ands 1 1 = 1
+ands _ _ = 0
+
+last' :: [a]    -> a
+last'    (x:[]) =  x
+last'    (x:xs) =  last' xs
+
+halfAdder :: Int -> Int -> (Int, Int)
+halfAdder x y
+
+fullAdder :: Int -> Int -> Int -> (Int, Int)
+fullAdder x y c = ( xors (xors x y) c , ors (ands c (xors x y)) (ands x y) )
+
 -- 1. Definir uma função recursiva que recebe um número binário sem sinal e retorna o valor equivalente em decimal. 
 bin2dec :: [Int] -> Int
 bin2dec []     = 0
